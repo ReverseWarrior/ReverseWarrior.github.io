@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+{%- include head.html -%}
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  {%- include header.html -%}
+  <main class="container site-main" id="main-content" tabindex="-1">
+    {{ content }}
+  </main>
+  {%- include sidebar-posts.html -%}
+  {%- include footer.html -%}
+  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+</body>
+</html>

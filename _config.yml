@@ -1,0 +1,41 @@
+title: Liel's Blog
+description: A Cybersecurity blog.
+author: Liel
+
+# If your site lives at https://<user>.github.io/<repo>, set baseurl to "/<repo>".
+# If it lives at https://<user>.github.io (user/organization site), leave baseurl empty.
+baseurl: ""
+url: "https://reversewarrior.github.io"
+
+permalink: /:year/:month/:day/:title/
+
+markdown: kramdown
+highlighter: rouge
+
+# Short bio shown on the home page. Supports Markdown.
+about: |
+  I'm Liel. I'm extremely passionate about exploit development, OS internals, hypervisors, C, Assembly (especially ARM), and anything low-level. I've found and exploited 
+  many vulnerabilities in a variety of products, from IoT devices to modern operating systems. Feel free to email me about anything :)
+# Social links shown on the home page.
+# Supported `platform` values: github, twitter, linkedin
+socials:
+  - platform: github
+    name: GitHub
+    url: https://github.com/ReverseWarrior
+  - platform: twitter
+    name: X
+    url: https://x.com/Revers3Warrior
+  - platform: linkedin
+    name: LinkedIn
+    url: https://linkedin.com/in/lielh
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor

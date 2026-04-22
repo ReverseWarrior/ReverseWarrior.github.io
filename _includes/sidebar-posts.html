@@ -1,0 +1,23 @@
+<aside class="sidebar-posts" aria-label="Recent posts">
+  <a class="sidebar-posts-logo" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
+    <img src="{{ '/assets/img/blog-logo.svg' | relative_url }}" alt="{{ site.title }} logo" width="96" height="96">
+  </a>
+  <details class="sidebar-posts-details"{% unless include.collapsed %} open{% endunless %}>
+    <summary class="sidebar-posts-summary">Blog Posts</summary>
+    <ul class="sidebar-post-list">
+      {% for post in site.posts limit: 8 %}
+        <li>
+          <a href="{{ post.url | relative_url }}">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <span class="sidebar-post-title">{{ post.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% if site.posts.size > 8 %}
+      <a class="see-all" href="{{ '/posts/' | relative_url }}">See all posts →</a>
+    {% else %}
+      <a class="see-all" href="{{ '/posts/' | relative_url }}">All posts →</a>
+    {% endif %}
+  </details>
+</aside>
