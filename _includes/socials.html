@@ -1,0 +1,12 @@
+{% if site.socials and site.socials.size > 0 %}
+<ul class="social-list">
+  {% for item in site.socials %}
+    <li>
+      <a href="{{ item.url }}" target="_blank" rel="me noopener">
+        {% include social-icon.html platform=item.platform %}
+        <span>{{ item.name }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
