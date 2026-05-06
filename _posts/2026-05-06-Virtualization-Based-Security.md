@@ -120,7 +120,9 @@ There are a few documented ways to find the VM exit handler online. The easiest 
 ![The VM exit handler](/images/vm-exit-handler.png)
 #### Reviewing the HvCallVtlCall hypercall
 After entering the `HypercallHandler` function we see a similar switch case checking the hypercall code provided and dispatching the according function, Using the TLFS, we know exactly where each hypercall is. In our scope are the `HvCallVtlCall` and `HvCallVtlReturn` hypercalls.
+
 ![hypercall handler](/images/hyper-handler-hypercalls.png)
+
 In order to understand the transition to the Secure Kernel, It will be good to know about the Virtual Processor object. The Virtual Processor object is the hypervisor's abstraction of a CPU exposed to a partition (Like when we setup a virtual machine with it's own processors). The hypervisor multiplexes Virtual Processors onto physical logical processors (A logical processor in VMX is a single hardware execution context as seen by the OS/hypervisor) via its scheduler. Referencing Saar's blog post we see that:
 
 > You will probably notice accesses to different structures pointed by the primary gs structure. Those structures signify the current state (e.g. the current running partition, the current virtual processor, etc.). For instance, most hypercalls check if the caller has permissions to perform the hypercall, by testing permissions flags in the gs:CurrentPartition structure.
