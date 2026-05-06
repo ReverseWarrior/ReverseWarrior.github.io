@@ -96,6 +96,7 @@ The first argument is an operation type that only becomes meaningful in light of
   - op 3 - `VslFlushEntireTb`, single cross-reference.
 
 > Normal hypercalls go through the `HvcallInitiateHypercall` function in the NT Kernel.
+
 ### Onto the hypervisor
 Now that we've issued a `vmcall`, where is our VM exit? A VM exit is the event of the processor transitioning from VMX non-root operation back to VMX root operation which, is basically saying we transfer execution to the hypervisor. 
 We will open up the `hvix64.exe` in IDA and see a 2MB binary we don't have symbols for, the best thing to do here is to see existing blogs and previous comments people had on the binary and luckily [Saar Amar](https://www.microsoft.com/en-us/msrc/blog/2018/12/first-steps-in-hyper-v-research) has written that it can help to perform a binary difference with other related Windows system files like the bootloader and the Secure Kernel.
