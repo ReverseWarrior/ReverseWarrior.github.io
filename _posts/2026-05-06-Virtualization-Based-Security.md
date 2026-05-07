@@ -114,11 +114,11 @@ winhvr.sys
 vmbusr.sys 
 ```
 There are more files to diff, but after these I got enough function names for my research. The second thing I did is updating the IDA 7.5 script to be compatible with IDA 9.2, Which is available here [ida92_CreatemVmcallHandlersTableWin11.py](https://github.com/ReverseWarrior/Hypervisors-Scripts).
-#### Searching for the VM exit handler
+### Searching for the VM exit handler
 There are a few documented ways to find the VM exit handler online. The easiest would be to search for the string "VM" and you will see the string "[%d] MinimalLoop VMX_EXIT_REASON_INIT_INTR. Rebooting the system", cross-referencing it shows only one instance in a switch statement in what appears to be our VM exit handler due to the raw register access we see and the switch case matching specific exit reason codes. If we didn't have this string we could've just searched for a `vmresume` instruction as after a VM exit we need to _resume_ the VM. Reviewing the [Intel VMX header file](https://github.com/ionescu007/SimpleVisor/blob/master/vmx.h) we see that the integers checked for the cases match the Intel VMX VM exit reason constants. For example 18 (0x12) is indeed in the switch case as the `VMX_EXIT_REASON_VMCALL` enum field. Showing us what function is responsible for executing hypercalls.
 
 ![The VM exit handler](/images/vm-exit-handler.png)
-#### Reviewing the HvCallVtlCall hypercall
+### Reviewing the HvCallVtlCall hypercall
 After entering the `HypercallHandler` function we see a similar switch case checking the hypercall code provided and dispatching the according function, Using the TLFS, we know exactly where each hypercall is. In our scope are the `HvCallVtlCall` and `HvCallVtlReturn` hypercalls.
 
 ![hypercall handler](/images/hyper-handler-hypercalls.png)
