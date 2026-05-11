@@ -108,7 +108,7 @@ winload.efi
 ntoskrnl.exe
 vmwp.exe
 securekernel.exe 
-winhVirtual Processorlatform.dll 
+winhvplatform.dll
 vmbkmcl.sys 
 winhvr.sys 
 vmbusr.sys 
