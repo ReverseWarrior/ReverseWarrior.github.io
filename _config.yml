@@ -28,6 +28,9 @@ socials:
   - platform: linkedin
     name: LinkedIn
     url: https://linkedin.com/in/lielh
+  - platform: rss
+    name: RSS
+    url: /feed.xml
 
 plugins:
   - jekyll-feed

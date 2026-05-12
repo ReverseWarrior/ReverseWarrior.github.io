@@ -168,7 +168,7 @@ img, svg { max-width: 100%; }
 }
 
 .site-main {
-  padding-top: var(--space-4);
+  padding-top: calc(var(--header-height) * 0.22);
   padding-bottom: var(--space-9);
   min-height: 70vh;
 }
@@ -1034,13 +1034,13 @@ th {
    Responsive
    ========================================================================= */
 @media (max-width: 720px) {
-  :root { --header-height: 64px; }
+  :root { --header-height: 83px; }
 
   .site-logo { width: 44px; height: 44px; }
 
   body { font-size: var(--text-base); }
 
-  .site-main { padding-top: var(--space-3); padding-bottom: var(--space-7); }
+  .site-main { padding-bottom: var(--space-7); }
 
   .intro { padding: 0; }
   .intro-logo { width: 112px; height: 112px; }
